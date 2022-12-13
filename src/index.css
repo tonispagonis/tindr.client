@@ -1,13 +1,522 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Candal&family=Roboto:wght@300&display=swap');
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 14rem 0.5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Assistant';
+    letter-spacing: 0.03em;
+  }
+  
+  body {
+    margin: 0;
+    background-color: rgb(251, 133, 90);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  input,
+  textarea {
+    font-size: 18px;
+    padding: 0.3em 0.8em;
+    margin: 0.3em 0.8em;;
+    border-radius: 15px;
+    border: 0px;
+    max-width: 300px;
+    background-color: rgb(221, 213, 213);
+    display: block;
+  }
+
+  select {
+    border-radius: 10px;
+    padding: 2px;
+    background-color: rgb(209, 199, 199);
+  }
+  
+  textarea {
+    min-height: 5rem;
+    min-width: 500px;
+    resize: vertical;
+  }
+  
+  button {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.4em 0.9em;
+    margin: 25px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: rgb(96, 92, 90);
+    color: aliceblue;
+    box-shadow: 0px 0px 15px 10px rgb(138, 184, 184);
+    cursor: pointer;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  /* ====================== NAVBAR ======================= */
+  nav {
+    height: 70px;
+    display: flex;
+    padding: 60px 40px 65px;
+    align-items: center;
+    margin: 0 0 20px;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 0px 0px 65px 65px;
+    justify-content: space-between;
+  }
+
+  nav h1 {
+    padding: 10px 20px;
+    display: flex;
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .nav-link {
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-left: 20px;
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-link-logged {
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 2px 14px;
+    margin-left: 3px;
+    margin-right: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background-color: rgb(243, 182, 160);
+  }
+
+  .login-button {
+    background-color: rgb(152, 208, 208);
+  }
+
+  .logout-button {
+    box-shadow: 0px 0px 30px 15px rgb(138, 184, 184);
+    margin-left: 35px;
+  }
+   /* ====================== INDEX ======================= */
+  .hero-line {
+    font-size: 80px;
+    margin-top: 120px;
+    letter-spacing: 2em;
+    color: #fff;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff
+  }
+   /* ====================== LOGIN/REGISTER ======================= */
+  .login-register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px 80px;
+    margin-top: 50px;
+    justify-content: center;
+  }
+
+  .login-register-form h3 {
+    padding-bottom: 20px;
+  }
+
+  .login-register-form select {
+    padding: 4px;
+    margin-inline: 3px;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+
+  .age-input {
+    font-size: 18px;
+    padding: 0.3em 0.8em;
+    margin: 0.3em 0.8em;;
+    border-radius: 15px;
+    border: 0px;
+    max-width: 300px;
+    background-color: rgb(221, 213, 213);
+    display: block;
+    width: 200px;
+  }
+   /* ====================== PROFILE/USER CARD ======================= */
+  .user-card {
+    padding: 0.5rem;
+    box-shadow: 0px 0px 20px 10px rgb(153, 207, 207);
+    border-radius: 30px;
+    background-color: rgb(138, 184, 184);
+    width: 350px;
+    height: 366px;
+    color: black;
+    font-weight: 500;
+  }
+
+  .text-on-image {
+    position: absolute;
+    top: 56.5%;
+    left: 39.4%;
+    background-color: rgba(243, 214, 204, 0.807);
+    border-radius: 16px;
+    padding: 1px 10px 1px;
+    text-align: justify;
+  }
+
+  .card-info {
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.15rem;
+    color: black;
+  }
+  
+  .user-container {
+    display: flex;
+    margin: 2.3rem 0 1.7rem;
+    justify-content: center;
+  }
+
+  .profile-img-input {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .user-card img {
+    border-radius: 22px;
+    width: 334px;
+    height: 350.28px;
+    border: 3px solid rgb(207, 204, 204);
+    object-fit: cover;
+  }
+
+  .buttons {
+    margin-inline-start: -20px;
+  }
+
+  .picture-delete-button {
+    background-color: aliceblue;
+    color: black;
+    padding: 9px 12px;
+    border-radius: 20px;
+    box-shadow: none;
+    margin: 5px;
+  }
+
+  .picture-switch-button {
+    background-color: rgb(215, 202, 202);
+    color: rgb(100, 93, 93);
+    padding: 2px 8px;
+    box-shadow: none;
+    margin: 3px;
+    font-size: 16px;
+    border: 2px solid rgb(208, 195, 195);
+  }
+
+
+  .upload-button {
+    margin-right: 100px;
+    padding: 10px 34px;
+    border-radius: 25px;
+    font-size: 19px;
+    cursor: cell;
+    
+  }
+
+  .disabled-button {
+    opacity: 30%;
+    background-color: rgb(215, 202, 202);
+    color: white;
+    padding: 2px 8px;
+    box-shadow: none;
+    margin: 3px;
+    cursor: not-allowed;
+    font-size: 16px;
+    border: 2px solid rgb(208, 195, 195);
+  }
+
+  .pictures-count p {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  /* ====================== FILTER-in-SWIPE ======================= */
+  .filterbox {
+    margin-right: 150px;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preferences-title {
+    margin-bottom: 30px;
+    font-size: 22px;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+
+  .city-preference select {
+    width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .sex-preference select {
+    width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .age-preference p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    margin-inline: 5px;
+  }
+
+  .age-ref {
+    font-size: 14px;
+    background-color: rgb(201, 198, 198);
+  }
+
+  /* .slider-numbers {
+    letter-spacing: 2px;
+  }
+
+  .age-slider {
+    width: 170px;
+    margin-top: 7px;
+  }   */
+
+  .filterbox-button {
+    font-size: 14px;
+    margin-top: 40px;
+    padding: 6px;
+    border-radius: 30px;
+    background-color: rgb(145, 140, 140);
+    box-shadow: none;
+    color: white;
+    border: 2px solid rgb(211, 204, 204);
+    width: 120px;
+    align-self: center;
+  }
+  /* ====================== SWIPE ======================= */
+  .swipe-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 70px 90px 0 0;
+  }
+
+  .swipe-container h2 {
+    font-size: 26px;
+    font-weight: 700;
+    position: absolute;
+    top: 20%;
+    right: 41.4%;
+    letter-spacing: 0;
+  }
+
+  .swipe-card {
+    padding: 0.5rem;
+    box-shadow: 0px 0px 20px 10px rgb(153, 207, 207);
+    border-radius: 30px;
+    background-color: rgb(138, 184, 184);
+    width: 350px;
+    height: 366px;
+    color: black;
+    font-weight: 500;
+  }
+
+  .swipe-text-on-image {
+    position: absolute;
+    top: 60.5%;
+    left: 51%;
+    background-color: rgba(243, 214, 204, 0.807);
+    border-radius: 16px;
+    padding: 1px 10px 1px;
+    text-align: justify;
+  }
+
+  .swipe-card-info {
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.15rem;
+    color: black;
+  }
+  
+
+  .swipe-card img {
+    border-radius: 22px;
+    width: 334px;
+    height: 350.28px;
+    border: 3px solid rgb(207, 204, 204);
+    object-fit: cover;
+  }
+
+  .swipe-picture-switch-button-left {
+    background-color: rgb(148, 132, 132);
+    color: rgb(251, 249, 249);
+    padding: 20px 8px;
+    box-shadow: none;
+    margin: 3px;
+    font-size: 16px;
+    border: 2px solid rgb(148, 132, 132);
+    position: absolute;
+    bottom: 47.5%;
+    right: 52%;
+  }
+
+   .swipe-picture-switch-button-right {
+    background-color: rgb(148, 132, 132);
+    color: rgb(251, 249, 249);
+    padding: 20px 8px;
+    box-shadow: none;
+    margin: 3px;
+    font-size: 16px;
+    border: 2px solid rgb(148, 132, 132);
+    position: absolute;
+    bottom: 47.5%;
+    right: 22.2%;
+  } 
+  .swipe-disabled-button-left {
+    opacity: 30%;
+    background-color: rgb(215, 202, 202);
+    color: white;
+    padding: 20px 8px;
+    box-shadow: none;
+    margin: 3px;
+    cursor: not-allowed;
+    font-size: 16px;
+    border: 2px solid rgb(208, 195, 195);
+    position: absolute;
+    bottom: 47.5%;
+    right: 52%;
+  }
+
+  .swipe-disabled-button-right {
+    opacity: 30%;
+    background-color: rgb(215, 202, 202);
+    color: white;
+    padding: 20px 8px;
+    box-shadow: none;
+    margin: 3px;
+    cursor: not-allowed;
+    font-size: 16px;
+    border: 2px solid rgb(208, 195, 195);
+    position: absolute;
+    bottom: 47.5%;
+    right: 22.2%;
+  }
+
+  .like-button {
+    margin-top: 35px;
+    border-radius: 40px;
+    padding: 10px 40px;
+    font-size: 30px;
+    background-color: rgb(148, 132, 132);
+  }
+
+  .dislike-button {
+    margin-top: 35px;
+    border-radius: 40px;
+    padding: 10px 40px;
+    font-size: 30px;
+    background-color: rgb(148, 132, 132);
+  }
+  /* ====================== CLOSED FEATURE ======================= */
+   .closed-feature-main {
+    font-size: 110px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+   }
+
+   .closed-feature {
+    font-size: 23px;
+    letter-spacing: 0.01em;
+   }
+
+    .forbidden {
+    background-color: rgba(190, 188, 188, 0.548);
+    padding: 80px 0 80px;
+    margin-top: 110px;
+    border-radius: 50px;
+    border: 4px solid black;
+    cursor: not-allowed;
+   }
+   /* ====================== FOOTER ======================= */
+   .nope {
+    font-size: 40px;
+    position: absolute;
+    left: 47%;
+    top: 48%
+   }
+   /* ====================== FOOTER ======================= */
+  footer {
+    font-size: 10px;
+    position: fixed;
+    bottom: 17px;
+    left: 30%;
+    right: 30%;
+    width: 35%;
+  }
+    /* ====================== TEXT ======================= */
+  
+  .transition {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .alert {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    padding: 1re,;
+    margin: auto;
+    max-width: 500px;
+    transform: translate(-50%);
+    background-color: rgb(210, 235, 171);
+    box-shadow: 5px 5px 10px rgb(28, 77, 28);
+    border-radius: 10px;
 }
